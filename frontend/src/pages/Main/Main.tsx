@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import useNetworkLayer from '../../hooks/networkLayer/useNetworkLayer';
 import { CityData } from '../../hooks/networkLayer/types/types';
 import './style.scss'
+import Map from './components/Map';
 
 function Main() {
 
@@ -20,7 +21,12 @@ function Main() {
       Main
       <button onClick={handleOnClick}>Press</button>
       <h1>City Explorer</h1>
+        <Map cities={cities}/>
+
+
       <div className="city-container">
+
+
         {cities.map((city, index) => (
           <div className="city-card" key={index}>
             <h2>{city.name}</h2>
