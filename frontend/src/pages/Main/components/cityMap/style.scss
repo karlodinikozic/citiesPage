@@ -1,0 +1,14 @@
+.selected-card-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+
+}
+.selected-card {
+  width: 300px;
+
+  @media (max-width: 576px) {
+    width: 150px;
+  }
+}

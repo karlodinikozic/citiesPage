@@ -1,8 +1,8 @@
-import { CityData } from './types/types';
+import { City } from './types/types';
 
 
 type citiesType = {
-  cities: [CityData]
+  cities: [City]
 }
 
 interface IService {

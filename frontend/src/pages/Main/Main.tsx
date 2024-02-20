@@ -1,52 +1,46 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import useNetworkLayer from '../../hooks/networkLayer/useNetworkLayer';
-import { CityData } from '../../hooks/networkLayer/types/types';
+import { City } from '../../hooks/networkLayer/types/types';
+import CitiesList from './components/cityList/CitiesList';
+import CityMap from './components/cityMap/CityMap';
 import './style.scss'
-import Map from './components/Map';
+
 
 function Main() {
 
-  const [cities, setCities] = useState<CityData[]>([]);
+  const { client } = useNetworkLayer();
+  
+  const [cities, setCities] = useState<City[]>([]);
+  const [selectedCity, setSelectedCity] = useState<City | undefined>(undefined);
 
-  const  {client} = useNetworkLayer()
+  const mapRef = useRef();
+  
 
-  const handleOnClick =async () => {
-    const data =   await client.getCityData()
-    setCities(data.cities)
-  }
+
+  const handleOnClick = useCallback(async () => {
+    const data = await client.getCityData();
+    setCities(data.cities);
+  }, [client]);
+
+  useEffect(() => {
+    handleOnClick().catch(console.error);
+  }, [handleOnClick]);
+
+
+  const handleCityClick = (city: City) => {
+    setSelectedCity(city);
+  };
 
 
   return (
-    <div className='Main'>
-      Main
-      <button onClick={handleOnClick}>Press</button>
+    <>
       <h1>City Explorer</h1>
-        <Map cities={cities}/>
-
-
-      <div className="city-container">
-
-
-        {cities.map((city, index) => (
-          <div className="city-card" key={index}>
-            <h2>{city.name}</h2>
-            <p><strong>Country:</strong> {city.country}</p>
-            <p><strong>Continent:</strong> {city.continent}</p>
-            <p><strong>Population:</strong> city.population)</p>
-            <p><strong>Founded:</strong> {city.founded}</p>
-            <h3>Landmarks:</h3>
-            <ul>
-              {city.landmarks.map((landmark, index) => (
-                <li key={index}>{landmark}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      <div className="main-container">
+        <CitiesList cities={cities} handlePress={handleCityClick} />
+        <CityMap selectedCity={selectedCity} />
       </div>
-    </div>
-
-)
-  ;
+    </>
+  );
 }
 
 export default Main;

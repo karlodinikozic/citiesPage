@@ -1,4 +1,4 @@
-export type CityData ={
+export type City ={
   name:string,
   name_native: string,
   country: string,
