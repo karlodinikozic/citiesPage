@@ -16,7 +16,9 @@ function CityMap({ selectedCity }:Props) {
 
   return (
     <div className='map-container' id='map'>
-    <MapContainer center={munichLatLng} zoom={6}  scrollWheelZoom={true} style={{ height: '100%' }}>
+    <MapContainer center={munichLatLng} zoom={6}
+                  boundsOptions={{padding:[100,100]}}
+                  scrollWheelZoom={true} style={{ height: '100%'}}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

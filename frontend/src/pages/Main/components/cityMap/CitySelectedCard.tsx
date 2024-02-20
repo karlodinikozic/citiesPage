@@ -5,6 +5,7 @@ import { useMap } from 'react-leaflet';
 import { LatLng } from 'leaflet';
 import { CloseOutlined } from '@ant-design/icons';
 import './style.scss'
+import { calculateOffsetCoordinates } from '../../../../util/functions';
 
 interface Props{
   selectedCity: City | undefined;
@@ -25,9 +26,13 @@ function CitySelectedCard({ selectedCity }:Props) {
     return  <></>
   }
 
-  const cityLatLng = new LatLng(Number.parseFloat(selectedCity.latitude),Number.parseFloat(selectedCity.longitude))
+  const cityLat = Number.parseFloat(selectedCity.latitude)
+  const cityLng = Number.parseFloat(selectedCity.longitude)
+  const xOffset =  window.innerWidth < 576 ? 50 : 0
 
-  map.setView(cityLatLng,8)
+  const viewCenter = calculateOffsetCoordinates (cityLat,cityLng,xOffset,0,8)
+
+  map.setView(viewCenter,8)
 
   const handleOnClose = () => {
     setHiddenCard(true)

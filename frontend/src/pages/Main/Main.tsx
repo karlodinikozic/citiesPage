@@ -28,7 +28,7 @@ function Main() {
 
 
   const handleCityClick = (city: City) => {
-    setSelectedCity(city);
+    setSelectedCity({...city});
   };
 
 
