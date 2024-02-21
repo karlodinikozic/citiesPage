@@ -63,5 +63,3 @@ Refer to the README files within each component directory for guidance on settin
 ## Additional Information
 
 For more detailed instructions on setting up and running the backend and frontend components, please refer to their respective README files located within the `backend` and `frontend` directories.
-
-This Markdown format can be used directly in your project's README.md file. Make sure to adjust the paths and instructions as per your project's structure and requirements.
