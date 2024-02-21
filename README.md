@@ -20,13 +20,6 @@ To get started with the Chuck Norris Joke App API, follow these steps:
    cd citiesPage
    ```
 
-3. Install the required dependencies using Yarn:
-
-   ```shell
-   npm install
-   ```
-
-
 ### Running Backend and Frontend Separately
 
 1. Navigate to the `backend` directory for backend setup and follow the instructions in the backend README file for setup and execution.
