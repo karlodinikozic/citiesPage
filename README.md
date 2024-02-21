@@ -41,10 +41,9 @@ To run the project using Docker, ensure you have Docker installed on your system
 
 2. Run the following command in the root directory of the project:
 
-
-   ```shell
- docker-compose up --build
-   ```
+      ```shell
+     docker-compose up --build
+      ```
 
 
 
