@@ -16,8 +16,8 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Expose port 3001 to the outside world
-EXPOSE 5000
+# Expose port 5000 to the outside world
+EXPOSE ${PORT}
 
 # Command to run the NestJS app
 CMD ["npm", "run", "start:dev"]

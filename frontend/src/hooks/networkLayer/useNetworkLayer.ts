@@ -5,7 +5,6 @@ const useNetworkLayer = (isMock: boolean = false) => {
 
   const client = isMock ? mockService : service
 
-
   return {client}
 
 }

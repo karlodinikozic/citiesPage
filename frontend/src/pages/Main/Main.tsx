@@ -34,7 +34,7 @@ function Main() {
 
   return (
     <>
-      <h1>City Explorer</h1>
+      <h1 className='title'>City Explorer</h1>
       <div className="main-container">
         <CitiesList cities={cities} handlePress={handleCityClick} />
         <CityMap selectedCity={selectedCity} />
