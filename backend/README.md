@@ -43,7 +43,7 @@ directory and define the following variables:
 
 General:
 
-- `PORT`: The port on which the API should listen (default is 3001).
+- `PORT`: The port on which the API should listen (default is 5000).
 - `PATH_TO_CITY_JSON`: Path to City Json file 
 
 
