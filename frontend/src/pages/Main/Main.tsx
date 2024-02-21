@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import useNetworkLayer from '../../hooks/networkLayer/useNetworkLayer';
 import { City } from '../../hooks/networkLayer/types/types';
 import CitiesList from './components/cityList/CitiesList';
@@ -12,9 +12,6 @@ function Main() {
   
   const [cities, setCities] = useState<City[]>([]);
   const [selectedCity, setSelectedCity] = useState<City | undefined>(undefined);
-
-  const mapRef = useRef();
-  
 
 
   const handleOnClick = useCallback(async () => {

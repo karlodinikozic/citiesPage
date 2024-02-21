@@ -1,5 +1,3 @@
-
-// Define the type for the response data
 import client from './client';
 import { AxiosResponse } from 'axios';
 
@@ -7,7 +5,6 @@ interface ApiResponse<T> {
   data: T;
 
 }
-
 
 export const genericGetRequest = async <T>(url: string): Promise<T> => {
   try {
@@ -19,7 +16,7 @@ export const genericGetRequest = async <T>(url: string): Promise<T> => {
     } else {
       throw new Error(`Request failed with status ${response.status}: ${response.statusText}`);
     }
-  } catch (error: any) {//TODO remove this
+  } catch (error:any) {
     throw new Error(`Error fetching data: ${error.message}`);
   }
 };

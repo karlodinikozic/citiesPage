@@ -56,5 +56,4 @@ describe('DataController', () => {
       expect(responseMock.json).toHaveBeenCalledWith({ error: errorMessage });
     });
   });
-
 });

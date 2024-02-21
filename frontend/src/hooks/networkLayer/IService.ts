@@ -1,6 +1,5 @@
 import { City } from './types/types';
 
-
 type citiesType = {
   cities: [City]
 }

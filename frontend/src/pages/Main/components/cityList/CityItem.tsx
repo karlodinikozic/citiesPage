@@ -1,13 +1,10 @@
 import React from 'react';
-import { Marker, Popup, useMap } from 'react-leaflet';
 import { City } from '../../../../hooks/networkLayer/types/types';
-import { LatLng } from 'leaflet';
 import { List, Typography } from 'antd';
 import './style.scss'
 
 interface Props{
   city: City,
-  // index: number,
   handlePress: (city: City) => void
 }
 

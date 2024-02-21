@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { MapContainer, Marker, TileLayer, useMap, useMapEvents } from 'react-leaflet';
+import React from 'react';
+import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 import { City } from '../../../../hooks/networkLayer/types/types';
 import { LatLng } from 'leaflet';
 import CitySelectedCard from './CitySelectedCard';
@@ -12,8 +12,6 @@ function CityMap({ selectedCity }:Props) {
 
   const munichLatLng = new LatLng(48.1,11.5)
 
-
-
   return (
     <div className='map-container' id='map'>
     <MapContainer center={munichLatLng} zoom={6}
@@ -24,7 +22,7 @@ function CityMap({ selectedCity }:Props) {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {selectedCity && (
-        <Marker  position={[ parseFloat(selectedCity.latitude),parseFloat(selectedCity.longitude)]} />
+        <Marker position={[ parseFloat(selectedCity.latitude),parseFloat(selectedCity.longitude)]} />
       )}
       <CitySelectedCard selectedCity={selectedCity}/>
     </MapContainer>
